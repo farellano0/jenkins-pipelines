@@ -28,16 +28,5 @@ pipeline {
                 sh "echo $INSTAGRAM_FARELLANO"
             }
         }
-        stage("Impirmir Variable de Entorno definida en SYSTEM") {
-            steps {
-                echo "${env.INSTAGRAM}"
-                echo "${INSTAGRAM}"
-                echo "$INSTAGRAM"
-                echo "=================="
-                sh "echo ${env.INSTAGRAM}"
-                sh "echo ${INSTAGRAM}"
-                sh "echo $INSTAGRAM"
-            }
-        }
     }
 }
