@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    environment {
+        INSTAGRAM_FARELLANO="@farellano"
+    }
+    
+    stages {
+        stage("Saludo 1") {
+            steps {
+                echo "Hola desde Saludo 1"
+            }
+        }
+        stage("Saludo 2") {
+            steps {
+                echo "Hola desde Saludo 2, paso 1"
+                echo "Hola desde Saludo 2, paso 2"
+            }
+        }
+        stage("Impimir Variables de Entorno") {
+            steps {
+                echo "${env.INSTAGRAM_FARELLANO}"
+                echo "${INSTAGRAM_FARELLANO}"
+                echo "$INSTAGRAM_FARELLANO"
+                echo "====================================="
+                sh "echo 'hola-mundo'"
+                sh "echo ${env.INSTAGRAM_FARELLANO}"
+                sh "echo ${INSTAGRAM_FARELLANO}"
+                sh "echo $INSTAGRAM_FARELLANO"
+            }
+        }
+        stage("Impirmir Variable de Entorno definida en SYSTEM") {
+            steps {
+                echo "${env.INSTAGRAM}"
+                echo "${INSTAGRAM}"
+                echo "$INSTAGRAM"
+                echo "=================="
+                sh "echo ${env.INSTAGRAM}"
+                sh "echo ${INSTAGRAM}"
+                sh "echo $INSTAGRAM"
+            }
+        }
+    }
+}
